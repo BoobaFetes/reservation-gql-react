@@ -1,0 +1,27 @@
+{
+  "name": "@reservation-gql-react/server",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "copy:db":"copyfiles src/db/* dist -u 1",
+    "start": "yarn clean && concurrently \"tsc --build --watch\" \"rimraf dist/db && yarn copy:db\"",
+    "clean": "rimraf **/tsconfig.tsbuildinfo **/dist",
+    "build": "yarn clean && tsc --build && yarn copy:db"
+  },
+  "dependencies": {
+    "@reservation-gql-react/business-layer": "*",
+    "@reservation-gql-react/interfaces-layer": "*",
+    "@types/express": "^4.17.7",
+    "express": "^4.17.1",
+    "express-graphql": "^0.11.0",
+    "graphql": "^15.3.0"  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "copyfiles": "^2.3.0",
+    "nodemon": "^2.0.4",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.7"
+  }
+}

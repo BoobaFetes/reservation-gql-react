@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    /* Basic Options */
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "composite": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src", "../data-access-layer/src/Sql/sql.ts", "../data-access-layer/src/SQL/PersonSqlCommands.ts"
+  ],
+  "references": [
+    {
+      "path": "../business-layer"
+    },
+    {
+      "path": "../interfaces-layer"
+    }
+  ]
+}

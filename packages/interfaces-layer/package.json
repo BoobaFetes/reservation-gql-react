@@ -1,0 +1,16 @@
+{
+  "name": "@reservation-gql-react/interfaces-layer",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn clean && tsc --build --watch",
+    "clean": "rimraf **/tsconfig.tsbuildinfo **/dist",
+    "build": "yarn clean && tsc --build"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.7"
+  }
+}

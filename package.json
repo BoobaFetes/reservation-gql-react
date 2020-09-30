@@ -1,0 +1,23 @@
+{
+  "name": "reservation-gql-react",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "yarn clean && concurrently \"yarn run start:dal\" \"yarn run start:bl\" \"yarn start:server\"",
+    "start:server": "yarn workspace @reservation-gql-react/server start",
+    "start:bl": "yarn workspace @reservation-gql-react/business-layer start",
+    "start:dal": "yarn workspace @reservation-gql-react/data-access-layer start",
+    "build": "yarn clean && yarn build:server && yarn build:client",
+    "build:server": "yarn workspace @reservation-gql-react/server build",
+    "build:client": "yarn workspace @reservation-gql-react/client build && copyfiles -u 1 client/build/* server/dist/public",
+    "clean": "rimraf packages/**/tsconfig.tsbuildinfo packages/**/dist packages/**/build"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "rimraf": "^3.0.2"
+  }
+}
